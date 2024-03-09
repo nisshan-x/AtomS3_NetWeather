@@ -27,6 +27,7 @@ Platform IO
 ## 使用方法
 
 - wifiの設定情報を書くこと
+- コードをAtomS3にuploadするだけでなく、SPIFFSに画像ファイルをuploadする必要がある。PlatformIOで"Project Tasks" -> “Upload File System image”すると/data内のファイルがUploadされる。
 
 ## License
 
