@@ -15,7 +15,7 @@ https://github.com/nisshan-x/AtomS3_NetWeather/assets/67353276/ce9daa78-b3eb-42b
 
 M5Stack AtomS3
 
-### ソフトウェア開発環境
+### ソフトウェアビルド環境
 
 Platform IO
 
