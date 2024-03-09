@@ -1,7 +1,14 @@
 #include "main.hpp"
 
-const char *ssid = "You have to input ssid";       //接続先wifiのssid
-const char *password = "You have to input password";   //接続先wifiのパスワード
+#if __has_include("config.hpp")
+#include "config.hpp"
+#else
+#define SSID "ssid"
+#define PASSWORD "password"
+#endif
+
+const char *ssid = SSID;       //接続先wifiのssid
+const char *password = PASSWORD;   //接続先wifiのパスワード
 unsigned long startTime = millis();
 CurrentDateTime cdt;
 WeatherJson wj;
