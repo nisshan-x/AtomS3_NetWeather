@@ -27,3 +27,7 @@ Platform IO
 ## 使用方法
 
 - wifiの設定情報を書くこと
+
+## License
+
+MIT
