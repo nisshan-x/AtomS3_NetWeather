@@ -51,9 +51,9 @@ class WeatherJson{
     // ローカルであらかじめ分析した、雨か雪を表すwether code
     uint16_t umbrella_code_[UC_NUM_] = {102, 103, 104, 105, 106, 107, 108, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 140, 160, 170, 181, 202, 203, 204, 205, 206, 207, 208, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 224, 225, 226, 228, 229, 230, 231, 240, 250, 260, 270, 281, 300, 301, 302, 303, 304, 306, 308, 309, 311, 313, 314, 315, 316, 317, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 340, 350, 361, 371, 400, 401, 402, 403, 405, 406, 407, 409, 411, 413, 414, 420, 421, 422, 423, 425, 426, 427, 450};
 
-    void analyze_data_func_(uint8_t index, time_t current_time_info_t);
-    bool umbrella_check_weather_code_(String weather_code_str);
-    tm stringToTm_(String dateString); // 指定された日付文字列をtm構造体に変換する関数
+    void analyze_data_func_(const uint8_t index, const time_t current_time_info_t);
+    bool umbrella_check_weather_code_(const String weather_code_str);
+    tm stringToTm_(const String dateString); // 指定された日付文字列をtm構造体に変換する関数
 };
 
 #endif

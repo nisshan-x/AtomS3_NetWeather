@@ -37,7 +37,7 @@ bool WeatherJson::getWeatherJson(){
   return false;
 }
 
-void WeatherJson::analyze_data(time_t current_time_info_t){
+void WeatherJson::analyze_data(const time_t current_time_info_t){
   deserializeJson(doc_, payload_);
 
   weather_data_size_ = doc_[0]["timeSeries"][0]["timeDefines"].size();  // json内のデータの個数を取得 = 3
@@ -46,7 +46,7 @@ void WeatherJson::analyze_data(time_t current_time_info_t){
   }
 }
 
-void WeatherJson::analyze_data_func_(uint8_t index, time_t current_time_info_t){
+void WeatherJson::analyze_data_func_(const uint8_t index, const time_t current_time_info_t){
   // date
   String date_tmp = doc_[0]["timeSeries"][0]["timeDefines"][index];  // 例 "2024-03-01T05:00:00+09:00"
   fc_data[index].fc_date_time = date_tmp;
@@ -110,7 +110,7 @@ bool WeatherJson::getTomorrowUmbrella(){
   return fc_data[tomorrow_index_].umbrella_flag;
 }
 
-bool WeatherJson::umbrella_check_weather_code_(String weather_code_str){
+bool WeatherJson::umbrella_check_weather_code_(const String weather_code_str){
   int weather_code_int = weather_code_str.toInt();
   for(uint8_t i = 0; i < UC_NUM_; i++){
     if(weather_code_int == umbrella_code_[i])
@@ -125,7 +125,7 @@ bool WeatherJson::umbrella_check_weather_code_(String weather_code_str){
 }
 
 // 指定された日付文字列をtm構造体に変換する関数
-tm WeatherJson::stringToTm_(String dateString) {
+tm WeatherJson::stringToTm_(const String dateString) {
   tm tmDate;
   sscanf(dateString.c_str(), "%d-%d-%d", &tmDate.tm_year, &tmDate.tm_mon, &tmDate.tm_mday);
   tmDate.tm_year -= 1900; // tm構造体では年を1900からの差で表す

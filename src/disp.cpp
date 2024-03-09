@@ -1,7 +1,7 @@
 #include "disp.hpp"
 
 
-void AppDisplay::update(String time_now, String today_date, String tomorrow_date, bool today_umbrella_flag, bool tomorrow_umbrella_flag){
+void AppDisplay::update(const String time_now, const String today_date, const String tomorrow_date, const bool today_umbrella_flag, const bool tomorrow_umbrella_flag){
   time_now_ = time_now;  // 現在時刻の文字列
   today_date_ = today_date; // 今日の日付 ("今日"付き)
   tomorrow_date_ = tomorrow_date; // 明日の日付 ("明日"付き)
@@ -66,7 +66,7 @@ void AppDisplay::disp_time_(){  // 時刻表示
   M5.Display.print(time_now_);
 }
 
-void AppDisplay::disp_weather_(String date, bool flag){
+void AppDisplay::disp_weather_(const String date, const bool flag){
   disp_header_date_(date);    // 日付の表示
 
   // デバッグ用
@@ -80,7 +80,7 @@ void AppDisplay::disp_weather_(String date, bool flag){
     disp_sun_cloud_();
 }
 
-void AppDisplay::disp_header_date_(String date){  // 日付の表示
+void AppDisplay::disp_header_date_(const String date){  // 日付の表示
   M5.Display.setFont(&fonts::lgfxJapanGothic_12);
   M5.Display.setCursor(0, 0);
   M5.Display.print(date);

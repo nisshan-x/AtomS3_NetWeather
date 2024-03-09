@@ -7,7 +7,7 @@
 
 class AppDisplay{
   public:
-    void update(String time_now, String today_date, String tomorrow_date, bool today_umbrella_flag, bool tomorrow_umbrella_flag);
+    void update(const String time_now, const String today_date, const String tomorrow_date, const bool today_umbrella_flag, const bool tomorrow_umbrella_flag);
     void disp();
 
   private:
@@ -22,8 +22,8 @@ class AppDisplay{
     uint8_t icon_y_offset_ = 28;
 
   void disp_time_();  // 時刻表示
-  void disp_weather_(String date, bool flag);
-  void disp_header_date_(String date);  // 日付の表示
+  void disp_weather_(const String date, const bool flag);
+  void disp_header_date_(const String date);  // 日付の表示
   void disp_umbrella_();
   void disp_sun_cloud_();
   uint16_t getColor_(uint8_t red, uint8_t green, uint8_t blue);

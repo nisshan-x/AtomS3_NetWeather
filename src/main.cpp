@@ -9,7 +9,6 @@ AppDisplay ad;
 
 // function declarations:
 void setup_wifi();
-void getWeatherJson();
 
 void setup_wifi() {
   WiFi.begin(ssid, password);
