@@ -5,6 +5,7 @@
 #include <ArduinoJson.h>
 #include <HTTPClient.h>
 
+#define JSON_URL "https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json"  // 東京都 130000
 
 class ForecastData{
   public:

@@ -8,7 +8,7 @@ bool WeatherJson::getWeatherJson(){
   updatedMillis_ = currentMillis;
 
   HTTPClient http;
-  http.begin("https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json");  // 気象庁
+  http.begin(JSON_URL);  // 気象庁
   int httpCode = http.GET();
 
   if (httpCode > 0)
