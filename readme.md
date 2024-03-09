@@ -1,5 +1,9 @@
 # M5StackシリーズのAtomS3で、天気予報をシンプルにアイコンで表示する
 
+
+https://github.com/nisshan-x/AtomS3_NetWeather/assets/67353276/ce9daa78-b3eb-42b6-bd8d-64e56355e6d4
+
+
 ## 仕様
 
 - 気象庁の天気予報(東京都)を取得。
