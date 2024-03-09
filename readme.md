@@ -1,8 +1,6 @@
 # M5StackシリーズのAtomS3で、天気予報をシンプルにアイコンで表示する
 
-
 https://github.com/nisshan-x/AtomS3_NetWeather/assets/67353276/ce9daa78-b3eb-42b6-bd8d-64e56355e6d4
-
 
 ## 仕様
 
@@ -21,8 +19,11 @@ M5Stack AtomS3
 
 Platform IO
 
-#### Library:
+#### Library
 
-- 	m5stack/M5Unified@^0.1.12
--	bblanchon/ArduinoJson@^7.0.3
+- m5stack/M5Unified@^0.1.12
+- bblanchon/ArduinoJson@^7.0.3
 
+## 使用方法
+
+- wifiの設定情報を書くこと
