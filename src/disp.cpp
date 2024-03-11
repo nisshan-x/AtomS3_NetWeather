@@ -69,10 +69,6 @@ void AppDisplay::disp_time_(){  // 時刻表示
 void AppDisplay::disp_weather_(const String date, const bool flag){
   disp_header_date_(date);    // 日付の表示
 
-  // デバッグ用
-  // fc_data[weather_index_].forecast.replace("　", " ");  // 例 "晴れ　時々　くもり" -> "晴れ 時々 くもり"
-  // USBSerial.println(fc_data[weather_index_].forecast.c_str());
-
   // アイコン表示
   if(flag)
     disp_umbrella_();

@@ -41,6 +41,11 @@ void WeatherJson::analyze_data(const time_t current_time_info_t){
   deserializeJson(doc_, payload_);
 
   weather_data_size_ = doc_[0]["timeSeries"][0]["timeDefines"].size();  // json内のデータの個数を取得 = 3
+
+  // デバッグ用
+  // USBSerial.print("    weather_data_size_ ");
+  // USBSerial.println(weather_data_size_);
+
   for(uint8_t i=0; i<weather_data_size_; i++){
     analyze_data_func_(i, current_time_info_t);
   }
@@ -65,7 +70,7 @@ void WeatherJson::analyze_data_func_(const uint8_t index, const time_t current_t
     today_index_ = index;
 
     // デバッグ用
-    // USBSerial.print("    today_index_ = index");
+    // USBSerial.print("    today_index_ ");
     // USBSerial.println(today_index_);
   }
   if(fc_data[index].diff_days == 1){
@@ -83,15 +88,29 @@ void WeatherJson::analyze_data_func_(const uint8_t index, const time_t current_t
   forecast_tmp.replace("　", " ");  // 例 "晴れ　時々　くもり" -> "晴れ 時々 くもり"
   fc_data[index].forecast = forecast_tmp;
 
-  USBSerial.print("    fc_data[index].forecast ");
-  USBSerial.println(fc_data[index].forecast);
+  // debug
   USBSerial.print("    index ");
   USBSerial.println(index);
+  USBSerial.print("    fc_data[index].forecast ");
+  USBSerial.println(fc_data[index].forecast);
 
   //weather code
-  String weather_code_tmp = doc_[0]["timeSeries"][0]["areas"][0]["weather_codes"][index];  // 例 "102"
+  String weather_code_tmp = doc_[0]["timeSeries"][0]["areas"][0]["weatherCodes"][index];  // 例 "102"
   fc_data[index].weather_code_str = weather_code_tmp;
   fc_data[index].umbrella_flag = umbrella_check_weather_code_(fc_data[index].weather_code_str);
+
+  // デバッグ用
+  // int weather_code_size = doc_[0]["timeSeries"][0]["areas"][0]["weatherCodes"].size();
+  // USBSerial.print("    weather_code_size ");
+  // USBSerial.println(weather_code_size);
+
+  // USBSerial.print("    weather_code_tmp ");
+  // USBSerial.println(weather_code_tmp.c_str());
+  USBSerial.print("    fc_data[index].weather_code_str ");
+  USBSerial.println(fc_data[index].weather_code_str.c_str());
+  // USBSerial.print("    fc_data[index].umbrella_flag ");
+  // USBSerial.println(fc_data[index].umbrella_flag);
+  USBSerial.println("");
 }
 
 String WeatherJson::getTodayDateStr(){  // 今日の日付 ("今日"付き)
@@ -116,8 +135,8 @@ bool WeatherJson::umbrella_check_weather_code_(const String weather_code_str){
     if(weather_code_int == umbrella_code_[i])
 
 // デバッグ用
-//      USBSerial.print("weather_code_int ");
-//      USBSerial.println(weather_code_int);
+      // USBSerial.print("    weather_code_int ");
+      // USBSerial.println(weather_code_int);
 
       return true;
   }
